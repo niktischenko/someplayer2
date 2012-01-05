@@ -20,7 +20,7 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # If your application uses the Qt Mobility libraries, uncomment the following
 # lines and add the respective components to the MOBILITY variable.
-CONFIG += mobility
+CONFIG += mobility xml
 MOBILITY += multimedia sensors feedback
 
 # Speed up launching on MeeGo/Harmattan when using applauncherd daemon
@@ -113,7 +113,8 @@ SOURCES += src/main.cpp \
     thirdparty/taglib/trueaudio/trueaudioproperties.cpp \
     thirdparty/taglib/trueaudio/trueaudiofile.cpp \
     thirdparty/taglib/wavpack/wavpackproperties.cpp \
-    thirdparty/taglib/wavpack/wavpackfile.cpp
+    thirdparty/taglib/wavpack/wavpackfile.cpp \
+    src/core/track.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -127,33 +128,8 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/control \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog \
-    thirdparty/taglib/CMakeLists.txt \
     thirdparty/taglib/taglib_config.h.cmake \
-    thirdparty/taglib/taglib.pro \
-    thirdparty/taglib/ape/CMakeLists.txt \
-    thirdparty/taglib/ape/ape-tag-format.txt \
-    thirdparty/taglib/asf/CMakeLists.txt \
-    thirdparty/taglib/flac/CMakeLists.txt \
-    thirdparty/taglib/mp4/CMakeLists.txt \
-    thirdparty/taglib/mpc/CMakeLists.txt \
-    thirdparty/taglib/mpeg/CMakeLists.txt \
-    thirdparty/taglib/mpeg/id3v1/CMakeLists.txt \
-    thirdparty/taglib/mpeg/id3v2/id3v2.4.0-structure.txt \
-    thirdparty/taglib/mpeg/id3v2/id3v2.4.0-frames.txt \
-    thirdparty/taglib/mpeg/id3v2/id3v2.3.0.txt \
-    thirdparty/taglib/mpeg/id3v2/id3v2.2.0.txt \
-    thirdparty/taglib/mpeg/id3v2/CMakeLists.txt \
-    thirdparty/taglib/mpeg/id3v2/frames/CMakeLists.txt \
-    thirdparty/taglib/ogg/CMakeLists.txt \
-    thirdparty/taglib/ogg/vorbis/CMakeLists.txt \
-    thirdparty/taglib/ogg/speex/CMakeLists.txt \
-    thirdparty/taglib/ogg/flac/CMakeLists.txt \
-    thirdparty/taglib/riff/CMakeLists.txt \
-    thirdparty/taglib/riff/wav/CMakeLists.txt \
-    thirdparty/taglib/riff/aiff/CMakeLists.txt \
-    thirdparty/taglib/toolkit/CMakeLists.txt \
-    thirdparty/taglib/trueaudio/CMakeLists.txt \
-    thirdparty/taglib/wavpack/CMakeLists.txt
+    thirdparty/taglib/taglib.pro
 
 HEADERS += \
     src/core/player.h \
@@ -239,7 +215,8 @@ HEADERS += \
     thirdparty/taglib/trueaudio/trueaudiofile.h \
     thirdparty/taglib/wavpack/wavpackproperties.h \
     thirdparty/taglib/wavpack/wavpackfile.h \
-    thirdparty/taglib/config.h
+    thirdparty/taglib/config.h \
+    src/core/track.h
 
 INCLUDEPATH += src \
     thirdparty/taglib \
